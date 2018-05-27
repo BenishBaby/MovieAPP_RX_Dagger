@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidMovieApp</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="api_error_alert_message">Error Fetching Now Playing Movies</string>
+</resources>
