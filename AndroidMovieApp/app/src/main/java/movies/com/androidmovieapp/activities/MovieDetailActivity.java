@@ -18,6 +18,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import movies.com.androidmovieapp.Model.Belongs_to_collection;
 import movies.com.androidmovieapp.Model.CollectionDetails;
 import movies.com.androidmovieapp.Model.Genres;
 import movies.com.androidmovieapp.Model.MovieDetails;
@@ -100,6 +101,20 @@ public class MovieDetailActivity extends BaseApp implements MovieDetailView{
     }
 
     @Override
+    public void setMovieCollectionFetchError() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Error Fetching Movie Collections")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    @Override
     public void setMoviewDetails(MovieDetails movieDetails) {
 
         Glide.with(this)
@@ -115,7 +130,11 @@ public class MovieDetailActivity extends BaseApp implements MovieDetailView{
             genreTypes = genres.getName() + "/";
         }
         genreView.setText(genreTypes);
-        presenter.loadMovieCollection("10");
+
+        Belongs_to_collection belongs_to_collection = movieDetails.getBelongs_to_collection();
+        if( belongs_to_collection != null) {
+            presenter.loadMovieCollection(belongs_to_collection.getId());
+        }
     }
 
     @Override

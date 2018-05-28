@@ -54,4 +54,6 @@ dependencies {
         exclude module: 'recyclerview-v7'
     }
     testImplementation 'org.mockito:mockito-core:2.0.90-beta'
+    androidTestImplementation ("com.android.support.test.espresso:espresso-intents:2.2")
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:3.0.1"
 }

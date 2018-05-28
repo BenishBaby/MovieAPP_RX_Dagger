@@ -11,10 +11,6 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" />
-
-    <ImageView
         android:id="@+id/movieImageView"
         android:layout_width="0dp"
         android:layout_height="200dp"
@@ -70,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/genre" />
+        app:layout_constraintTop_toBottomOf="@+id/genre" />
 
     <TextView
         android:id="@+id/description"
@@ -82,7 +78,6 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -111,6 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
+            android:gravity="left"
             app:layout_constraintTop_toBottomOf="@+id/description"/>
 
 </android.support.constraint.ConstraintLayout>

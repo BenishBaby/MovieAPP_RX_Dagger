@@ -62,7 +62,7 @@ public class MovieDetailPresenterImpl implements MovieDetailPresenter,MovieInter
     public void onMovieCollectionAPIFetchError() {
         if (movieDetailView != null) {
             movieDetailView.hideProgress();
-            movieDetailView.setMovieFetchError();
+            movieDetailView.setMovieCollectionFetchError();
         }
     }
 

@@ -12,6 +12,8 @@ public interface MovieDetailView {
 
     void setMovieFetchError();
 
+    void setMovieCollectionFetchError();
+
     void setMoviewDetails(MovieDetails moviewDetails);
 
     void setMoviewCollectionList(CollectionDetails collectionDetails);

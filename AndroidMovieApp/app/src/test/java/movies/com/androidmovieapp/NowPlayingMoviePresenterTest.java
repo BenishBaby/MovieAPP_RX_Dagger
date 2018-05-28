@@ -52,4 +52,16 @@ public class NowPlayingMoviePresenterTest {
         presenter.onNowPlayingMoviesAPIFetchError();
         verify(view, times(1)).hideProgress();
     }
+
+    @Test
+    public void checkIfShowsMessageOnItemClick() {
+        presenter.onItemClicked(anyString());
+        verify(view, times(1)).naviageToDetailPage(anyString());
+    }
+
+    @Test
+    public void checkIfViewIsReleasedOnDestroy() {
+        presenter.onDestroy();
+        assertNull(presenter.getNowPlayingMovieView());
+    }
 }

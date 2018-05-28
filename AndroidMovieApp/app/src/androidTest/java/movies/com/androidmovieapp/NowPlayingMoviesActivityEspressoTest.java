@@ -8,6 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import movies.com.androidmovieapp.activities.MovieDetailActivity;
 import movies.com.androidmovieapp.activities.NowPlayingMoviesActivity;
 
 import static android.support.test.espresso.Espresso.onData;
@@ -21,10 +22,13 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.anything;
+import static android.support.test.espresso.intent.Intents.intended;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 
 
 @RunWith(AndroidJUnit4.class)
 public class NowPlayingMoviesActivityEspressoTest {
+
 
 
     @Rule
@@ -53,4 +57,12 @@ public class NowPlayingMoviesActivityEspressoTest {
     public void checkIfGridViewDisplayed() {
         onView(withId(R.id.gridView)).check(matches(isDisplayed()));
     }
+
+    @Test
+    public void checkMovieDetailActivityIsCalled() {
+        onData(anything()).inAdapterView(withId(R.id.gridView)).atPosition(0).perform(click());
+        intended(hasComponent(MovieDetailActivity.class.getName()));
+    }
+
+
 }

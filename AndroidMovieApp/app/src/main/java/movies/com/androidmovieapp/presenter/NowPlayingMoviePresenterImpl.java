@@ -6,6 +6,10 @@ import movies.com.androidmovieapp.view.NowPlayingMovieView;
 
 public class NowPlayingMoviePresenterImpl implements NowPlayingMoviePresenter, MovieInteractor.NowPlayingMoviesAPIFinishedListener{
 
+    public NowPlayingMovieView getNowPlayingMovieView() {
+        return nowPlayingMovieView;
+    }
+
     private NowPlayingMovieView nowPlayingMovieView;
     public MovieInteractor nowPlayingMovieInteractor;
 
